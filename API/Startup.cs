@@ -18,6 +18,8 @@ namespace API
 {
     public class Startup
     {
+        //NOTE: Neil rename configuration to _config
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -37,7 +39,7 @@ namespace API
 
             services.AddDbContext<DataContext>(options =>
             {
-                options.UseSqlite("Connection String");
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
         }
 
