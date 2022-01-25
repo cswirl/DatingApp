@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace API.Extensions
 {
+<<<<<<< HEAD
     public static class DateTimeExtensions
     {
         public static int CalculateAge(this DateTime dob)
@@ -15,5 +16,9 @@ namespace API.Extensions
 
             return age;
         }
+=======
+    public class DateTimeExtensions
+    {
+>>>>>>> main
     }
 }
