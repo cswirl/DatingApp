@@ -19,7 +19,7 @@ namespace API
             var host = CreateHostBuilder(args).Build();
             using var scope = host.Services.CreateScope();
             var services = scope.ServiceProvider;
-            // This is beyond the Middleware wher Exception handling was implemented, hence we use try catch here
+            // The code here is beyond the Middlewares' reach where the Exception handling was implemented, hence we use try catch here
             try
             {
                 var context = services.GetRequiredService<DataContext>();
