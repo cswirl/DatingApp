@@ -34,7 +34,8 @@ namespace API.Controllers
             return Ok(users);
         }
 
-        // This method will have a url of ./api/user/username
+        // This method will have a url of ./api/users/username
+        // users is the name of the controller via ASP.NET MVC naming convention
         // username is a parameter
         [HttpGet("{username}")]
         public async Task<ActionResult<MemberDto>> GetUser(string username)
