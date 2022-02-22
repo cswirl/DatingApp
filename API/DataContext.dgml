@@ -7,15 +7,17 @@ Relational:DefaultMappings: System.Collections.Generic.List`1[Microsoft.EntityFr
 Relational:TableMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMapping]
 Relational:TableName: Users
 ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding" Category="EntityType" Group="Expanded" />
-<Node Id = "Photo" Label="Photo" Name="Photo" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="ConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding
+<Node Id = "Message" Label="Message" Name="Message" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="ConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding
 Relational:DefaultMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMappingBase]
 Relational:TableMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMapping]
-Relational:TableName: Photos
+Relational:TableName: Messages
 ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding" Category="EntityType" Group="Expanded" />
 <Node Id = "AppUser.Id" Label="Id" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
 Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
 <Node Id = "AppUser.LikedByUsers" Label="LikedByUsers (*)" Name="LikedByUsers" Category="Navigation Collection" Type="ICollection&lt;UserLike&gt;"  Field="" Dependent="UserLike" Principal="" Inverse="LikedUser" PropertyAccessMode="PropertyAccessMode.Default" />
 <Node Id = "AppUser.LikedUsers" Label="LikedUsers (*)" Name="LikedUsers" Category="Navigation Collection" Type="ICollection&lt;UserLike&gt;"  Field="" Dependent="UserLike" Principal="" Inverse="SourceUser" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "AppUser.MessageReceived" Label="MessageReceived (*)" Name="MessageReceived" Category="Navigation Collection" Type="ICollection&lt;Message&gt;"  Field="" Dependent="Message" Principal="" Inverse="Recipient" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "AppUser.MessageSent" Label="MessageSent (*)" Name="MessageSent" Category="Navigation Collection" Type="ICollection&lt;Message&gt;"  Field="" Dependent="Message" Principal="" Inverse="Sender" PropertyAccessMode="PropertyAccessMode.Default" />
 <Node Id = "AppUser.Photos" Label="Photos (*)" Name="Photos" Category="Navigation Collection" Type="ICollection&lt;Photo&gt;"  Field="" Dependent="Photo" Principal="" Inverse="AppUser" PropertyAccessMode="PropertyAccessMode.Default" />
 <Node Id = "AppUser.City" Label="City" Name="City" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
 Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
@@ -43,6 +45,33 @@ Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft
 Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
 <Node Id = "AppUser.UserName" Label="UserName" Name="UserName" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
 Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Photo" Label="Photo" Name="Photo" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="ConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding
+Relational:DefaultMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMappingBase]
+Relational:TableMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMapping]
+Relational:TableName: Photos
+ServiceOnlyConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding" Category="EntityType" Group="Expanded" />
+<Node Id = "Message.Id" Label="Id" Name="Id" Category="Property Primary" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="True" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="ValueGenerated.OnAdd" />
+<Node Id = "Message.Recipient" Label="Recipient (1)" Name="Recipient" Category="Navigation Property" Type="AppUser"  Field="" Dependent="" Principal="AppUser" Inverse="MessageReceived" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Message.Sender" Label="Sender (1)" Name="Sender" Category="Navigation Property" Type="AppUser"  Field="" Dependent="" Principal="AppUser" Inverse="MessageSent" PropertyAccessMode="PropertyAccessMode.Default" />
+<Node Id = "Message.Content" Label="Content" Name="Content" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Message.DateRead" Label="DateRead" Name="DateRead" Category="Property Optional" Type="Nullable&lt;DateTime&gt;" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Message.MessageSent" Label="MessageSent" Name="MessageSent" Category="Property Required" Type="DateTime" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Message.RecipientDeleted" Label="RecipientDeleted" Name="RecipientDeleted" Category="Property Required" Type="bool" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Message.RecipientId" Label="RecipientId" Name="RecipientId" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Message.RecipientUsername" Label="RecipientUsername" Name="RecipientUsername" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Message.SenderDeleted" Label="SenderDeleted" Name="SenderDeleted" Category="Property Required" Type="bool" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="True" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Message.SenderId" Label="SenderId" Name="SenderId" Category="Property Foreign" Type="int" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="True" IsRequired="True" IsIndexed="True" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
+<Node Id = "Message.SenderUsername" Label="SenderUsername" Name="SenderUsername" Category="Property Optional" Type="string" MaxLength="None" Field="" PropertyAccessMode="PropertyAccessMode.Default" BeforeSaveBehavior="PropertySaveBehavior.Save" AfterSaveBehavior="PropertySaveBehavior.Save" Annotations="Relational:DefaultColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMappingBase]
+Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ColumnMapping]" IsPrimaryKey="False" IsForeignKey="False" IsRequired="False" IsIndexed="False" IsShadow="False" IsAlternateKey="False" IsConcurrencyToken="False" IsUnicode="True" ValueGenerated="None" />
 <Node Id = "UserLike" Label="UserLike" Name="UserLike" BaseClass="" IsAbstract="False" ChangeTrackingStrategy="ChangeTrackingStrategy.Snapshot"  Annotations="ConstructorBinding: Microsoft.EntityFrameworkCore.Metadata.ConstructorBinding
 Relational:DefaultMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMappingBase]
 Relational:TableMappings: System.Collections.Generic.List`1[Microsoft.EntityFrameworkCore.Metadata.Internal.TableMapping]
@@ -69,9 +98,11 @@ Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft
   </Nodes>
   <Links>
 <Link Source = "IModel" Target="AppUser" Category="Contains" />
-<Link Source = "IModel" Target="Photo" Category="Contains" />
+<Link Source = "IModel" Target="Message" Category="Contains" />
 <Link Source = "AppUser" Target="AppUser.LikedByUsers" Category="Contains" />
 <Link Source = "AppUser" Target="AppUser.LikedUsers" Category="Contains" />
+<Link Source = "AppUser" Target="AppUser.MessageReceived" Category="Contains" />
+<Link Source = "AppUser" Target="AppUser.MessageSent" Category="Contains" />
 <Link Source = "AppUser" Target="AppUser.Photos" Category="Contains" />
 <Link Source = "AppUser" Target="AppUser.Id" Category="Contains" />
 <Link Source = "AppUser" Target="AppUser.City" Category="Contains" />
@@ -87,6 +118,21 @@ Relational:TableColumnMappings: System.Collections.Generic.SortedSet`1[Microsoft
 <Link Source = "AppUser" Target="AppUser.PasswordHash" Category="Contains" />
 <Link Source = "AppUser" Target="AppUser.PasswordSalt" Category="Contains" />
 <Link Source = "AppUser" Target="AppUser.UserName" Category="Contains" />
+<Link Source = "IModel" Target="Photo" Category="Contains" />
+<Link Source = "Message" Target="Message.Recipient" Category="Contains" />
+<Link Source = "Message" Target="Message.Sender" Category="Contains" />
+<Link Source = "Message" Target="Message.Id" Category="Contains" />
+<Link Source="Message" Target="AppUser" From="Message.RecipientId" To="AppUser.Id" Name="Message -> AppUser" Annotations="Relational:ForeignKeyMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ForeignKeyConstraint]" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source="Message" Target="AppUser" From="Message.SenderId" To="AppUser.Id" Name="Message -> AppUser" Annotations="Relational:ForeignKeyMappings: System.Collections.Generic.SortedSet`1[Microsoft.EntityFrameworkCore.Metadata.Internal.ForeignKeyConstraint]" IsUnique="False" Label="1:*" Category="Foreign Key" />
+<Link Source = "Message" Target="Message.Content" Category="Contains" />
+<Link Source = "Message" Target="Message.DateRead" Category="Contains" />
+<Link Source = "Message" Target="Message.MessageSent" Category="Contains" />
+<Link Source = "Message" Target="Message.RecipientDeleted" Category="Contains" />
+<Link Source = "Message" Target="Message.RecipientId" Category="Contains" />
+<Link Source = "Message" Target="Message.RecipientUsername" Category="Contains" />
+<Link Source = "Message" Target="Message.SenderDeleted" Category="Contains" />
+<Link Source = "Message" Target="Message.SenderId" Category="Contains" />
+<Link Source = "Message" Target="Message.SenderUsername" Category="Contains" />
 <Link Source = "IModel" Target="UserLike" Category="Contains" />
 <Link Source = "Photo" Target="Photo.AppUser" Category="Contains" />
 <Link Source = "Photo" Target="Photo.Id" Category="Contains" />
