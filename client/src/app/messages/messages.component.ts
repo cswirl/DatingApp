@@ -31,7 +31,7 @@ export class MessagesComponent implements OnInit {
   }
 
   pageChanged(event) {
-    // this conditional check wil prevent an infinite loop
+    // this conditional check will prevent an infinite loop
     if (this.pageNumber !== event.page) {
       this.pageNumber = event.page;
       this.loadMessages();

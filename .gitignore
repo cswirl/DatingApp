@@ -437,5 +437,6 @@ FodyWeavers.xsd
 
 
 # OTHERS
-#*.db
+
+*.db
 appsettings.json
