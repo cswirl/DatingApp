@@ -26,11 +26,12 @@ namespace API
             {
                 var context = services.GetRequiredService<DataContext>();
                 var userManager = services.GetRequiredService<UserManager<AppUser>>();
+                var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
 
                 // This will run the ef core database update command - if it detects pending migration
                 await context.Database.MigrateAsync();
 
-                await Seed.SeedUsers(userManager);
+                await Seed.SeedUsers(userManager, roleManager);
             } 
             catch (Exception ex)
             {
