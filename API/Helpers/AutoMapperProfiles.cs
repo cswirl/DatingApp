@@ -38,6 +38,9 @@ namespace API.Helpers
                 dest => dest.RecipientPhotoUrl,
                 opt => opt.MapFrom(src => src.Recipient.Photos.FirstOrDefault(x => x.IsMain).Url)
                 );
+
+            // This will append letter 'Z' for DateTime.UtcNow - Standard format use by web browsers
+            CreateMap<DateTime, DateTime>().ConvertUsing(d => DateTime.SpecifyKind(d, DateTimeKind.Utc));
         }
     }
 }
