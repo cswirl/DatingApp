@@ -82,5 +82,13 @@ namespace API.Data
                 userParams.PageNumber, 
                 userParams.PageSize);
         }
+
+        public async Task<string> GetUserGender(string username)
+        {
+            return await _context.Users
+                .Where(u => u.UserName == username)
+                .Select(x => x.Gender)
+                .FirstOrDefaultAsync();
+        }
     }
 }
