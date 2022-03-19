@@ -31,7 +31,7 @@
             routerLink='{{container === "Outbox" 
                 ? "/members/" + message.recipientUsername 
                 : "/members/" + message.senderUsername}}' 
-            [queryParams]='{tab: 3}'>
+            [queryParams]='{tab: 2}'>
             <td>{{message.content}}</td>
             <td>
                 <div *ngIf="container === 'Outbox'">

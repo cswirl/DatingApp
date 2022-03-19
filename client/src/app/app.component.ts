@@ -11,7 +11,7 @@ import { PresenceService } from './_services/presence.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'The Dating app';
+  title = 'Collide';
   users: any;
 
   constructor(private accountService: AccountService, private presence: PresenceService) {
