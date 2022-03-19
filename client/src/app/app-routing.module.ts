@@ -17,7 +17,8 @@ import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.gu
 import { MemberDetailedResolver } from './_resolvers/member-detailed.resolver';
 
 const routes: Routes = [
-  {path: '', component: GuestComponent},
+  {path: '', component: HomeComponent},
+  {path: 'guest', component: GuestComponent},
   {
     path: '',
     runGuardsAndResolvers: 'always',

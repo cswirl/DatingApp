@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { take } from 'rxjs/operators';
+import { AccountService } from '../_services/account.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +11,15 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   registerMode = false;
 
-  constructor() { }
+  constructor(public accountService: AccountService, private router: Router) {
+    var user = null;
+    this.accountService.currentUser$.pipe(take(1)).subscribe(response => {
+      user = response;
+    })
+
+    if (!user)
+        this.router.navigateByUrl('/guest');
+   }
 
   ngOnInit(): void {
   }
