@@ -28,7 +28,9 @@ namespace API.Services
             var query = _context.Users.AsQueryable();
 
             query = query.Where(u => u.UserName != userParams.CurrentUsername);
-            if (userParams.Gender != default) query = query.Where(u => u.Gender == userParams.Gender);
+            if (!(userParams.Gender == default || userParams.Gender.ToLower() == "all"))
+                query = query.Where(u => u.Gender == userParams.Gender);
+            
 
             var minDob = DateTime.Today.AddYears(-userParams.MaxAge - 1);
             var maxDob = DateTime.Today.AddYears(-userParams.MinAge);
