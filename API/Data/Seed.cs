@@ -23,6 +23,8 @@ namespace API.Data
             var users = JsonSerializer.Deserialize<List<AppUser>>(userData);
             if (users == null) return;
 
+            users.UniqueMainPhotoUrl();
+
             var roles = new List<AppRole>
             {
                 new AppRole{Name = "Member"},
@@ -52,6 +54,34 @@ namespace API.Data
             await userManager.CreateAsync(admin, "Pa$$w0rd");
             await userManager.AddToRolesAsync(admin, new[] { "Admin", "Moderator"});
 
+        }
+    }
+
+    static class SeedUserExtension
+    {
+        public static List<AppUser> UniqueMainPhotoUrl(this List<AppUser> users)
+        {
+            int counter = 1;
+            var men = users.Where(u => u.Gender.ToLower() == "male").ToList();
+            foreach (var x in men)
+            {
+                foreach(var photo in x.Photos)
+                {
+                    photo.Url = "https://randomuser.me/api/portraits/men/" + counter++ + ".jpg";
+                }
+            }
+            // Women
+            counter = 1;
+            var women = users.Where(u => u.Gender.ToLower() == "female").ToList();
+            foreach (var x in women)
+            {
+                foreach (var photo in x.Photos)
+                {
+                    photo.Url = "https://randomuser.me/api/portraits/women/" + counter++ + ".jpg";
+                }
+            }
+
+            return users;
         }
     }
 }

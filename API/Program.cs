@@ -30,7 +30,8 @@ namespace API
 
                 // This will run the ef core database update command - if it detects pending migration
                 await context.Database.MigrateAsync();
-
+                //This will seed Users, Roles
+                //This will not run if there is any existing user in the database
                 await Seed.SeedUsers(userManager, roleManager);
             } 
             catch (Exception ex)
