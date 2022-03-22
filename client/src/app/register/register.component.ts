@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { PasswordValidator } from '../_forms/password.validator';
 import { AccountService } from '../_services/account.service';
 
 @Component({
@@ -30,12 +31,12 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       gender: ['male'],
       username: ['', Validators.required],
-      knownAs: ['', Validators.required],
+      knownAs: [''],
       dateOfBirth: ['', Validators.required],
-      city: ['', Validators.required],
-      country: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(4), 
-        Validators.maxLength(8)]],
+      city: [''],
+      country: [''],
+      password: ['', [Validators.required, PasswordValidator.strong,
+        Validators.minLength(4),Validators.maxLength(20)]],
       confirmPassword: ['', [Validators.required, this.matchValues('password')]]
     })
     this.registerForm.controls.password.valueChanges.subscribe(() => {
