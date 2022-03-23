@@ -37,6 +37,7 @@ import { MemberPaginatedListComponent } from './members/member-paginated-list/me
 import { GuestComponent } from './guest/guest.component';
 import { LargeCardComponent } from './cards/large-card/large-card.component';
 import { AboutComponent } from './about/about.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { AboutComponent } from './about/about.component';
     MemberPaginatedListComponent,
     GuestComponent,
     LargeCardComponent,
-    AboutComponent
+    AboutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
