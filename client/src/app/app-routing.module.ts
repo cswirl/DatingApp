@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './about/about.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
@@ -19,6 +20,7 @@ import { MemberDetailedResolver } from './_resolvers/member-detailed.resolver';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'guest', component: GuestComponent},
+  {path: 'about', component: AboutComponent},
   {
     path: '',
     runGuardsAndResolvers: 'always',

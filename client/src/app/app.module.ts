@@ -35,6 +35,8 @@ import { RolesModalComponent } from './modals/roles-modal/roles-modal.component'
 import { ConfirmDialogComponent } from './modals/confirm-dialog/confirm-dialog.component';
 import { MemberPaginatedListComponent } from './members/member-paginated-list/member-paginated-list.component';
 import { GuestComponent } from './guest/guest.component';
+import { LargeCardComponent } from './cards/large-card/large-card.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { GuestComponent } from './guest/guest.component';
     RolesModalComponent,
     ConfirmDialogComponent,
     MemberPaginatedListComponent,
-    GuestComponent
+    GuestComponent,
+    LargeCardComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

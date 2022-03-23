@@ -1,0 +1,5 @@
+.lang img {
+    width: 800px;
+    height: 150px;
+    object-fit: contain;
+}
