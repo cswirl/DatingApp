@@ -4,3 +4,8 @@
     object-fit: contain;
 }
 
+.badge {
+    width: 9rem;
+    margin-right: 20px;
+}
+
